@@ -1,4 +1,4 @@
-package file
+package statichash
 
 import (
 	"testing"
@@ -69,7 +69,7 @@ func TestOffsets(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotHashes, gotKeys, gotValues, gotKeyData, gotLength := Offsets(tt.args.numItems, tt.args.valueSize, tt.args.totalKeyLength)
+			gotHashes, gotKeys, gotValues, gotKeyData, gotLength := offsets(tt.args.numItems, tt.args.valueSize, tt.args.totalKeyLength)
 			if gotHashes != tt.wantHashes {
 				t.Errorf("Offsets() gotHashes = %v, want %v", gotHashes, tt.wantHashes)
 			}
